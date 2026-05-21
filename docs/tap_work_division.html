@@ -231,7 +231,7 @@
     <li style="padding:6px 0 6px 24px;position:relative"><span style="position:absolute;left:0;color:var(--phosphor-dim)">▸</span><strong>Branch por feature</strong>: <code>feat/hub</code>, <code>feat/gui-room-view</code>, <code>feat/world-data</code>. <code>main</code> fica sempre a compilar.</li>
     <li style="padding:6px 0 6px 24px;position:relative"><span style="position:absolute;left:0;color:var(--phosphor-dim)">▸</span><strong>Pull Request + review do outro</strong> antes de merge. Garante que ambos conhecem o código todo (essencial para a avaliação).</li>
     <li style="padding:6px 0 6px 24px;position:relative"><span style="position:absolute;left:0;color:var(--phosphor-dim)">▸</span><strong>Commits frequentes e descritivos</strong>: a spec verifica que cada membro tem commits. Nada de um commit gigante no fim.</li>
-    <li style="padding:6px 0 6px 24px;position:relative"><span style="position:absolute;left:0;color:var(--phosphor-dim)">▸</span><strong>Definir o <code>protocol</code> primeiro</strong>, num PR conjunto, antes de seguirem em paralelo — é a dependência que desbloqueia os dois lados.</li>
+    <li style="padding:6px 0 6px 24px;position:relative"><span style="position:absolute;left:0;color:var(--phosphor-dim)">▸</span><strong>Fechar o <em>contrato</em> do <code>protocol</code> primeiro</strong> (structs + signatures + códigos), num PR conjunto. A implementação das funções pode vir depois, em paralelo com o resto do trabalho.</li>
     <li style="padding:6px 0 6px 24px;position:relative"><span style="position:absolute;left:0;color:var(--phosphor-dim)">▸</span><strong><code>.gitignore</code></strong>: binários (<code>bin/</code>), nada de outputs gerados.</li>
   </ul>
 </section>
@@ -254,11 +254,13 @@
   <div class="phase">
     <div class="pn"><b>01</b><span>Contrato</span></div>
     <div class="pc">
-      <div class="pt">Pacote protocol (bloqueador — fazer primeiro)</div>
+      <div class="pt">Pacote protocol — só o <em>contrato</em>, não a implementação</div>
       <ul>
-        <li>Structs de comando, códigos OK/EVT/ERR, parsing/serialização <span class="who b">AMBOS</span></li>
-        <li>Testes do pacote protocol <span class="who b">AMBOS</span></li>
+        <li>Structs de comando, resposta e evento (signatures) <span class="who b">AMBOS</span></li>
+        <li>Códigos de erro (constantes) <span class="who b">AMBOS</span></li>
+        <li>Desvios à RFC documentados no README <span class="who b">AMBOS</span></li>
       </ul>
+      <p style="margin-top:10px;color:var(--ink-dim);font-size:13px">A implementação das funções (<code>Parse</code>, <code>OK</code>, <code>Errf</code>, formatters de EVT) <strong>não é bloqueadora</strong> aqui — o Rui implementa-as na Fase 02 quando precisar para o servidor. O Alexandre não usa o pacote Go directamente: o bridge só relaya bytes, e o <code>app.js</code> parseia contra os formatos documentados.</p>
     </div>
   </div>
 
@@ -267,10 +269,13 @@
     <div class="pc">
       <div class="pt">Ligar uma ponta à outra o mais cedo possível</div>
       <ul>
+        <li>Implementar <code>protocol</code> (Parse, OK, Errf, EVT formatters) <span class="who r">RUI</span></li>
         <li>Servidor: CONNECT + LOOK + Hub mínimo <span class="who r">RUI</span></li>
         <li>CLI a ligar e mostrar resposta <span class="who r">RUI</span></li>
-        <li>Mundo mínimo (3 salas) + loader + validador <span class="who a">ALEX</span></li>
-        <li>GUI: ligar via bridge e mostrar a sala <span class="who a">ALEX</span></li>
+        <li>Loader + validador de mundo <span class="who a">ALEX</span></li>
+        <li>Descrições das salas no <code>world.json</code> <span class="who a">ALEX</span></li>
+        <li>Bridge WebSocket↔TCP (<code>cmd/gui</code>) <span class="who a">ALEX</span></li>
+        <li>GUI: ligar via bridge e renderizar LOOK <span class="who a">ALEX</span></li>
       </ul>
     </div>
   </div>
