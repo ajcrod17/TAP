@@ -20,6 +20,36 @@ Lista ordenada de tarefas por pessoa, com caminho do ficheiro.
 
 ---
 
+## Verificar na escola
+
+Correr a partir da raiz do projeto. "Está tudo OK" = os três sem queixas.
+
+```bash
+go test ./...        # corre todos os testes. Bom: linha "ok ...". Mau: aparece "FAIL"
+go vet ./...         # análise estática. Bom: não imprime nada
+gofmt -l .           # lista ficheiros mal formatados. Bom: não imprime nada
+```
+
+Se o `gofmt -l` listar algum ficheiro, corrige tudo de uma vez:
+
+```bash
+gofmt -w .           # formata automaticamente
+```
+
+Ver os testes em detalhe (caso a caso), só do protocolo:
+
+```bash
+go test -v ./internal/protocol
+```
+
+Mais tarde, para o servidor (apanha race conditions de concorrência):
+
+```bash
+go test -race ./...
+```
+
+---
+
 ## RUI — Server, Engine & CLI
 
 Ordem recomendada (cada ficheiro depende do anterior estar minimamente funcional).
