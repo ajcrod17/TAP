@@ -1,6 +1,11 @@
 # TAP — Plano de Trabalho
 
-Lista ordenada de tarefas por pessoa, com caminho do ficheiro. Marca cada linha com `[x]` à medida que terminas.
+Lista ordenada de tarefas por pessoa, com caminho do ficheiro.
+
+**Estados:**
+- `[ ]` — por fazer
+- `[REVIEW]` — referência implementada pelo Claude. **Analisar, perceber e reescrever à nossa maneira** (o subject exige que saibamos explicar o código na defesa). Os comentários em português marcam o que rever.
+- `[x]` — feito por nós, validado.
 
 ---
 
@@ -11,6 +16,7 @@ Lista ordenada de tarefas por pessoa, com caminho do ficheiro. Marca cada linha 
 - [x] `data/world.json` com 8 salas, NPCs, items, quests (faltam descriptions)
 - [x] Deviations à RFC documentadas no [README.md](README.md)
 - [x] Scaffold do GUI Fyne em [cmd/gui/main.go](cmd/gui/main.go) com assinaturas dos painéis
+- [REVIEW] `internal/protocol` implementado como referência (command, response, event) + testes a passar — verificado contra o RFC real (error codes e EVT conformes)
 
 ---
 
@@ -33,9 +39,10 @@ Recurso principal: [A Tour of Go](https://go.dev/tour) + [Effective Go](https://
 - [ ] **Testes em Go** — `testing.T`, table-driven tests (útil para o `protocol`)
 
 ### Bloco 1 — Protocolo (desbloqueia tudo o resto)
-- [ ] [internal/protocol/command.go](internal/protocol/command.go) — `Parse()` + `String()`
-- [ ] [internal/protocol/response.go](internal/protocol/response.go) — `OK()`, `OKf()`, `OKJson()`, `Errf()`
-- [ ] [internal/protocol/event.go](internal/protocol/event.go) — as 9 funções de EVT
+- [REVIEW] [internal/protocol/command.go](internal/protocol/command.go) — `Parse()` + `String()`
+- [REVIEW] [internal/protocol/response.go](internal/protocol/response.go) — `OK()`, `OKf()`, `OKJson()`, `Errf()` (helpers; structs já estavam)
+- [REVIEW] [internal/protocol/event.go](internal/protocol/event.go) — as 9 funções de EVT
+- [REVIEW] [internal/protocol/command_test.go](internal/protocol/command_test.go) — testes table-driven (Parse, responses, events). Em inglês; serve de molde para os outros pacotes
 
 ### Bloco 2 — Game core
 - [ ] [internal/game/world.go](internal/game/world.go) — `NewWorld()`, `GetRoom()`, `GetPlayer()`, `AddPlayer()`, `RemovePlayer()`, `MovePlayer()`, `PlayersInRoom()`, `TotalPlayers()`, `NPCInRoom()`
