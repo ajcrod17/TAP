@@ -124,7 +124,7 @@ Recurso: [A Tour of Go](https://go.dev/tour) (faz até "Concurrency" inclusive m
 - [ ] **`os.ReadFile`** — ler ficheiros de disco
 
 ### Bloco 1 — Independente do servidor (podes começar já)
-	- [ ] [data/world.json](data/world.json) — substituir todos os `"description": "TODO"` por textos reais
+	- [x] [data/world.json](data/world.json) — substituir todos os `"description": "TODO"` por textos reais
 	- [x] [internal/worldfile/loader.go](internal/worldfile/loader.go) — `Load()` + `parseJSON()`
 	- [x] [internal/worldfile/validate.go](internal/worldfile/validate.go) — `Validate()` + 6 funções `check*`
 - [ ] [go.mod](go.mod) — `go get fyne.io/fyne/v2` e apagar o comentário
