@@ -129,7 +129,7 @@ Recurso: [A Tour of Go](https://go.dev/tour) (faz até "Concurrency" inclusive m
 	- [x] [internal/worldfile/validate.go](internal/worldfile/validate.go) — `Validate()` + 6 funções `check*`
 - [X] [go.mod](go.mod) — `go get fyne.io/fyne/v2` e apagar o comentário
 - [X] [cmd/gui/main.go](cmd/gui/main.go) — `main()`, `readLoop()`, `sendCommand()` (parte de rede sem UI ainda)
-- [ ] [cmd/gui/main.go](cmd/gui/main.go) — `buildStatusBar()`, `buildActionBar()` (mais simples, começar por aqui para ter algo a aparecer)
+- [X] [cmd/gui/main.go](cmd/gui/main.go) — `buildStatusBar()`, `buildActionBar()` (mais simples, começar por aqui para ter algo a aparecer). Need to test with go version above 1.19.
 
 ### Bloco 2 — UI base (não precisa do servidor a correr)
 - [ ] [cmd/gui/main.go](cmd/gui/main.go) — `buildRoomPanel()` com placeholders (room name, description, exits, items, NPCs)
