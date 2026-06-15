@@ -141,13 +141,13 @@ Recurso: [A Tour of Go](https://go.dev/tour) (faz até "Concurrency" inclusive m
 > 🚦 **Checkpoint de integração** com o Rui. Vertical slice end-to-end.
 
 ### Bloco 3 — Resto do `cmd/gui/main.go` (já com o servidor a correr)
-- [ ] [cmd/gui/main.go](cmd/gui/main.go) — `applyResponse()` e `applyEvent()` a fazer routing por verbo / categoria
-- [ ] [cmd/gui/main.go](cmd/gui/main.go) — handlers de LOOK e INVENTORY (parsear `LookResponse` / `InventoryItem` e refrescar widgets)
-- [ ] [cmd/gui/main.go](cmd/gui/main.go) — handler de STATUS (atualiza HP no status bar)
-- [ ] [cmd/gui/main.go](cmd/gui/main.go) — handlers de EVT ROOM PRESENCE ENTER/LEAVE
-- [ ] [cmd/gui/main.go](cmd/gui/main.go) — append de chat por scope (Global/Room/Group)
-- [ ] [cmd/gui/main.go](cmd/gui/main.go) — handler de EVT STATS para o contador global de jogadores
-- [ ] Botões de ATTACK / TALK / QUEST / QUESTS ligados a `sendCommand()`
+    - [x] [cmd/gui/main.go](cmd/gui/main.go) — `applyResponse()` e `applyEvent()` a fazer routing por verbo / categoria
+    - [x] [cmd/gui/main.go](cmd/gui/main.go) — handlers de LOOK e INVENTORY (parsear `LookResponse` / `InventoryItem` e refrescar widgets)
+    - [x] [cmd/gui/main.go](cmd/gui/main.go) — handler de STATUS (atualiza HP no status bar)
+    - [x] [cmd/gui/main.go](cmd/gui/main.go) — handlers de EVT ROOM PRESENCE ENTER/LEAVE
+    - [x] [cmd/gui/main.go](cmd/gui/main.go) — append de chat por scope (Global/Room/Group)
+    - [x] [cmd/gui/main.go](cmd/gui/main.go) — handler de EVT STATS para o contador global de jogadores
+    - [x] Botões de ATTACK / TALK / QUEST / QUESTS ligados a `sendCommand()`
 
 ### Bloco 4 — Polish & docs
 - [ ] [README.md](README.md) — secção **World Design** (mapa, NPCs, items)
