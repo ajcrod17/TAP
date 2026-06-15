@@ -69,21 +69,22 @@ Recurso principal: [A Tour of Go](https://go.dev/tour) + [Effective Go](https://
 - [ ] **Testes em Go** — `testing.T`, table-driven tests (útil para o `protocol`)
 
 ### Bloco 1 — Protocolo (desbloqueia tudo o resto)
-- [REVIEW] [internal/protocol/command.go](internal/protocol/command.go) — `Parse()` + `String()`
-- [REVIEW] [internal/protocol/response.go](internal/protocol/response.go) — `OK()`, `OKf()`, `OKJson()`, `Errf()` (helpers; structs já estavam)
-- [REVIEW] [internal/protocol/event.go](internal/protocol/event.go) — as 9 funções de EVT
-- [REVIEW] [internal/protocol/command_test.go](internal/protocol/command_test.go) — testes table-driven (Parse, responses, events). Em inglês; serve de molde para os outros pacotes
+- [OK] [internal/protocol/command.go](internal/protocol/command.go) — `Parse()` + `String()`
+- [OK] [internal/protocol/response.go](internal/protocol/response.go) — `OK()`, `OKf()`, `OKJson()`, `Errf()` (helpers; structs já estavam)
+- [OK] [internal/protocol/event.go](internal/protocol/event.go) — as 9 funções de EVT
+- [OK] [internal/protocol/command_test.go](internal/protocol/command_test.go) — testes table-driven (Parse, responses, events). Em inglês; serve de molde para os outros pacotes
 
 ### Bloco 2 — Game core
-- [ ] [internal/game/world.go](internal/game/world.go) — `NewWorld()`, `GetRoom()`, `GetPlayer()`, `AddPlayer()`, `RemovePlayer()`, `MovePlayer()`, `PlayersInRoom()`, `TotalPlayers()`, `NPCInRoom()`
-- [ ] [internal/game/item.go](internal/game/item.go) — `TakeItem()`, `DropItem()`, `FindItem()`
+- [OK] [internal/game/world.go](internal/game/world.go) — `NewWorld()`, `GetRoom()`, `GetPlayer()`, `AddPlayer()`, `RemovePlayer()`, `MovePlayer()`, `PlayersInRoom()`, `TotalPlayers()`, `NPCInRoom()`
+- [OK] [internal/game/item.go](internal/game/item.go) — `TakeItem()`, `DropItem()`, `FindItem()`
 
 ### Bloco 3 — Server mínimo (vertical slice)
-- [ ] [internal/server/client.go](internal/server/client.go) — `newClient()`, `readPump()`, `writePump()`, `safeSend()`
-- [ ] [internal/server/hub.go](internal/server/hub.go) — `NewHub()`, `Run()`, `broadcast()`, `broadcastAll()`, `broadcastGroup()`, `removeClient()`, `updatePlayerCount()`
-- [ ] [internal/server/dispatch.go](internal/server/dispatch.go) — só os handlers mínimos: `dispatch`, `handleConnect`, `handleQuit`, `handleLook`, `handleMove`, `handleWho`, `handleChat`
-- [ ] [cmd/server/main.go](cmd/server/main.go) — `main()` + `listenAndServe()`
-- [ ] [cmd/cli/main.go](cmd/cli/main.go) — `main()` + `readLoop()` + `writeLoop()`
+- [OK] [internal/server/client.go](internal/server/client.go) — `newClient()`, `readPump()`, `writePump()`, `safeSend()`
+- [OK] [internal/server/hub.go](internal/server/hub.go) — `NewHub()`, `Run()`, `Accept()`, `broadcast()`, `broadcastAll()`, `removeClient()`, `updatePlayerCount()` (`broadcastGroup` → Bloco 4)
+- [OK] [internal/server/dispatch.go](internal/server/dispatch.go) — `dispatch` + 6 handlers: `handleConnect`, `handleQuit`, `handleLook`, `handleMove`, `handleWho`, `handleChat`
+- [OK] [cmd/server/main.go](cmd/server/main.go) — `main()` + `listenAndServe()` (+ shutdown gracioso via signal.NotifyContext)
+- [OK] [cmd/cli/main.go](cmd/cli/main.go) — `main()` + `readLoop()` + `writeLoop()`
+- [OK] [internal/server/server_test.go](internal/server/server_test.go) — teste de integração TCP (vertical slice, presença, chat, nome duplicado); passa com `-race`
 
 > 🚦 **Checkpoint de integração** com o Alexandre. Testar CONNECT → LOOK → MOVE → CHAT → QUIT pelo CLI e pelo GUI.
 
