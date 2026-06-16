@@ -90,8 +90,8 @@ Recurso principal: [A Tour of Go](https://go.dev/tour) + [Effective Go](https://
 
 ### Bloco 4 — Sistemas
 - [ ] [internal/server/dispatch.go](internal/server/dispatch.go) — handlers de grupo: `handleGroup`, `handleGroupCreate`, `handleGroupInvite`, `handleGroupJoin`, `handleGroupLeave`
-- [ ] [internal/server/dispatch.go](internal/server/dispatch.go) — handlers de items: `handleTake`, `handleDrop`, `handleInventory`
-- [ ] [internal/server/dispatch.go](internal/server/dispatch.go) — handler de NPCs: `handleTalk`
+- [OK] [internal/server/dispatch.go](internal/server/dispatch.go) — handlers de items: `handleTake`, `handleDrop`, `handleInventory`
+- [OK] [internal/server/dispatch.go](internal/server/dispatch.go) — handler de NPCs: `handleTalk`
 - [ ] [internal/game/combat.go](internal/game/combat.go) — `Attack()`, `calculateDamage()`, `RespawnPlayer()`
 - [ ] [internal/server/dispatch.go](internal/server/dispatch.go) — handlers de combate: `handleAttack`, `handleStatus`
 - [ ] [internal/game/quest.go](internal/game/quest.go) — `GetQuestFromNPC()`, `StartQuest()`, `CheckCompletion()`, `CompleteQuest()`, `ListQuests()`
