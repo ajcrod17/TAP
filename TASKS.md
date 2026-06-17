@@ -93,7 +93,7 @@ Recurso principal: [A Tour of Go](https://go.dev/tour) + [Effective Go](https://
 - [OK] [internal/server/dispatch.go](internal/server/dispatch.go) — handlers de items: `handleTake`, `handleDrop`, `handleInventory`
 - [OK] [internal/server/dispatch.go](internal/server/dispatch.go) — handler de NPCs: `handleTalk`
 - [OK] [internal/game/combat.go](internal/game/combat.go) — `Attack()`, `calculateDamage()`, `RespawnPlayer()`
-- [] [internal/server/dispatch.go](internal/server/dispatch.go) — handlers de combate: `handleAttack`, `handleStatus`
+- [OK] [internal/server/dispatch.go](internal/server/dispatch.go) — handlers de combate: `handleAttack`, `handleStatus`
 - [OK] [internal/game/quest.go](internal/game/quest.go) — `GetQuestFromNPC()`, `StartQuest()`, `CheckCompletion()`, `CompleteQuest()`, `ListQuests()` (tipos fetch + defeat)
 - [OK] [internal/server/dispatch.go](internal/server/dispatch.go) — handlers de quests: `handleQuest`, `handleQuests`
 
