@@ -89,22 +89,22 @@ Recurso principal: [A Tour of Go](https://go.dev/tour) + [Effective Go](https://
 > 🚦 **Checkpoint de integração** com o Alexandre. Testar CONNECT → LOOK → MOVE → CHAT → QUIT pelo CLI e pelo GUI.
 
 ### Bloco 4 — Sistemas
-- [ ] [internal/server/dispatch.go](internal/server/dispatch.go) — handlers de grupo: `handleGroup`, `handleGroupCreate`, `handleGroupInvite`, `handleGroupJoin`, `handleGroupLeave`
+- [OK] [internal/server/dispatch.go](internal/server/dispatch.go) — handlers de grupo: `handleGroup`, `handleGroupCreate`, `handleGroupInvite`, `handleGroupJoin`, `handleGroupLeave` (+ `broadcastGroup`/`leaveGroup` no hub, `CHAT GROUP`)
 - [OK] [internal/server/dispatch.go](internal/server/dispatch.go) — handlers de items: `handleTake`, `handleDrop`, `handleInventory`
 - [OK] [internal/server/dispatch.go](internal/server/dispatch.go) — handler de NPCs: `handleTalk`
 - [OK] [internal/game/combat.go](internal/game/combat.go) — `Attack()`, `calculateDamage()`, `RespawnPlayer()`
-- [OK] [internal/server/dispatch.go](internal/server/dispatch.go) — handlers de combate: `handleAttack`, `handleStatus`
-- [ ] [internal/game/quest.go](internal/game/quest.go) — `GetQuestFromNPC()`, `StartQuest()`, `CheckCompletion()`, `CompleteQuest()`, `ListQuests()`
-- [ ] [internal/server/dispatch.go](internal/server/dispatch.go) — handlers de quests: `handleQuest`, `handleQuests`
+- [] [internal/server/dispatch.go](internal/server/dispatch.go) — handlers de combate: `handleAttack`, `handleStatus`
+- [OK] [internal/game/quest.go](internal/game/quest.go) — `GetQuestFromNPC()`, `StartQuest()`, `CheckCompletion()`, `CompleteQuest()`, `ListQuests()` (tipos fetch + defeat)
+- [OK] [internal/server/dispatch.go](internal/server/dispatch.go) — handlers de quests: `handleQuest`, `handleQuests`
 
 ### Bloco 5 — Polish & docs
-- [ ] Logging estruturado completo em todos os handlers (slog JSON)
-- [ ] Detecção de abuso (rate-limit + log WARN)
-- [ ] [README.md](README.md) — secção **Architecture**
-- [ ] [README.md](README.md) — secção **Combat System** (preencher fórmula de damage)
-- [ ] [README.md](README.md) — secção **Quest System**
-- [ ] [README.md](README.md) — secção **Server Logging** (thresholds)
-- [ ] [README.md](README.md) — completar **Protocol Implementation** (scanner buffer, max line)
+- [OK] Logging estruturado (slog JSON): conexões/desconexões com IP, comandos, respostas (WARN nos erros), mudanças de estado
+- [OK] Detecção de abuso: monitorização de command flooding por cliente + log WARN
+- [OK] [README.md](README.md) — secção **Architecture**
+- [OK] [README.md](README.md) — secção **Combat System** (fórmula de damage `[10,20]`)
+- [OK] [README.md](README.md) — secção **Quest System**
+- [OK] [README.md](README.md) — secção **Server Logging** (thresholds: 20 cmd/s → WARN)
+- [OK] [README.md](README.md) — completar **Protocol Implementation** (scanner buffer 1MB, código 400)
 
 ---
 
