@@ -119,10 +119,10 @@ Recurso: [A Tour of Go](https://go.dev/tour) (faz até "Concurrency" inclusive m
     - [x] **Sanity check do Fyne** — correr [testeFyne/](testeFyne/) num PC da escola, ver se a janela abre (se falhar, decidir plano B antes de escrever código)
     - [x] **Fyne v2** — `app.New()`, `NewWindow()`, `widget.NewLabel/Button/Entry/List`, `container.NewVBox/HBox/Border/AppTabs`, `widget.Refresh()`, `fyne.Do(...)` para atualizar a UI a partir de outra goroutine. Ler o tutorial "Getting started" em [docs.fyne.io](https://docs.fyne.io)
     - [x] **`net.Dial`** — abrir conexão TCP do cliente GUI para o servidor TAP
-- [ ] **`bufio.Scanner`** — ler linhas da `net.Conn` (uma resposta/evento por linha)
+    - [x] **`bufio.Scanner`** — ler linhas da `net.Conn` (uma resposta/evento por linha)
     - [x] **Goroutines + channels** — uma goroutine de leitura empurra linhas para um `chan string`, a goroutine da UI consome e atualiza widgets
-- [ ] **`encoding/json`** — `Unmarshal` para parsear respostas (`LookResponse`, `InventoryItem`, etc.) e para ler `world.json`
-- [ ] **`os.ReadFile`** — ler ficheiros de disco
+    - [x] **`encoding/json`** — `Unmarshal` para parsear respostas (`LookResponse`, `InventoryItem`, etc.) e para ler `world.json`
+    - [x] **`os.ReadFile`** — ler ficheiros de disco
 
 ### Bloco 1 — Independente do servidor (podes começar já)
 	- [x] [data/world.json](data/world.json) — substituir todos os `"description": "TODO"` por textos reais
@@ -150,7 +150,7 @@ Recurso: [A Tour of Go](https://go.dev/tour) (faz até "Concurrency" inclusive m
     - [x] Botões de ATTACK / TALK / QUEST / QUESTS ligados a `sendCommand()`
 
 ### Bloco 4 — Polish & docs
-- [ ] [README.md](README.md) — secção **World Design** (mapa, NPCs, items)
+    - [x] [README.md](README.md) — secção **World Design** (mapa, NPCs, items)
 - [ ] [README.md](README.md) — secção **Building and Running** (passos detalhados)
 - [ ] [Makefile](Makefile) — rever targets, garantir que `make lint` passa
 - [ ] Testar fluxo completo dos exemplos do subject (V.5)
