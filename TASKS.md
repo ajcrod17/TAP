@@ -152,7 +152,7 @@ Recurso: [A Tour of Go](https://go.dev/tour) (faz até "Concurrency" inclusive m
 ### Bloco 4 — Polish & docs
     - [x] [README.md](README.md) — secção **World Design** (mapa, NPCs, items)
 - [ ] [README.md](README.md) — secção **Building and Running** (passos detalhados)
-- [ ] [Makefile](Makefile) — rever targets, garantir que `make lint` passa
+    - [x] [Makefile](Makefile) — rever targets, garantir que `make lint` passa
 - [ ] Testar fluxo completo dos exemplos do subject (V.5)
 
 ---
