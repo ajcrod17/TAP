@@ -1,4 +1,5 @@
 *This project has been created as part of the 42 curriculum by rusilva-, acaldeir.*
+> **Note**: This repository is a standalone portfolio mirror of the collaborative project developed in the team repository: [ruimouradev/TAP](https://github.com/ruimouradev/TAP).
 
 # The Answer Protocol
 
